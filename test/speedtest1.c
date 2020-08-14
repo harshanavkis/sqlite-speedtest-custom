@@ -4,7 +4,8 @@
 ** The available command-line options are described below:
 */
 static const char zHelp[] =
-  "Usage: %s [--options] DATABASE\n"
+  "Usage: %s tsf [--options] DATABASE\n"
+  "Number of inserts will be 500*tsf"
   "Options:\n"
   "  --autovacuum        Enable AUTOVACUUM mode\n"
   "  --cachesize N       Set the cache size to N\n" 
@@ -2007,9 +2008,9 @@ int main(int argc, char **argv){
   g.zWR = "";
   g.zNN = "";
   g.zPK = "UNIQUE";
-  g.szTest = 100;
+  g.szTest = atoi(argv[1]);
   g.nRepeat = 1;
-  for(i=1; i<argc; i++){
+  for(i=2; i<argc; i++){
     const char *z = argv[i];
     if( z[0]=='-' ){
       do{ z++; }while( z[0]=='-' );
