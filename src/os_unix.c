@@ -6571,7 +6571,8 @@ int sqlite3_current_time = 0;  /* Fake system time in seconds since 1970. */
 ** cannot be found.
 */
 static int unixCurrentTimeInt64(sqlite3_vfs *NotUsed, sqlite3_int64 *piNow){
-  static const sqlite3_int64 unixEpoch = 24405875*(sqlite3_int64)8640000;
+  //static const sqlite3_int64 unixEpoch = 24405875*(sqlite3_int64)8640000;
+  static const sqlite3_int64 unixEpoch = 0;
   int rc = SQLITE_OK;
 #if defined(NO_GETTOD)
   time_t t;
