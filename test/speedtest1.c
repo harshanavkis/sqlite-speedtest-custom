@@ -311,6 +311,7 @@ void speedtest1_end_test(void){
   if( !g.bSqlOnly ){
     g.iTotal += iElapseTime;
     printf("%4d.%03ds\n", (int)(iElapseTime/1000), (int)(iElapseTime%1000));
+    fflush(stdout);
   }
   if( g.pStmt ){
     sqlite3_finalize(g.pStmt);
